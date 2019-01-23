@@ -1,12 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import ReactDom from 'react-dom' //Is needed to import onto the Dom
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const tasks = ['take out the trash', 'shovel the driveway', 'walk the dog'];
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+//this is a loop going through the array
+const element = React.createElement('ol', null, tasks.map((task, index) => React.createElement('li', {key: index}, task)));
+//You can change the h1 to anything
+//To display onto the index.html, add onto the element to display 'hello world'
+ReactDom.render(element, document.getElementById('root'));
